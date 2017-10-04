@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Support us | A bit's brain</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="scripts/support/script.js"></script>
+        <script type="text/javascript" src="scripts/script_unified.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="css/stylesheet.css" />
+    </head>
+    <body ng-app="SupportUsApp">
+        <div class="container-fluid" ng-controller="mainController">
+            <div id="title_bar">
+            <img id="title_image" ng-src="{{ title_background }}">
+                    <a href="index.html" id="title_text">{{ title }}</a>
+                    <a href="index.html"><img class="logo" ng-src="{{ logo }}"></a>
+            </div>
+            <div id="menu" class="row">
+            <div ng-repeat="button in menu_buttons">
+                <a href="{{ button.link }}" class="menu_button col-md-4 col-sm-4" id="button-{{$index}}">
+                    <p class="button_text">{{ button.text }}</p>
+                    <img ng-src="{{ button.background }}" class="button_img" id="button_img-{{$index}}">
+                </a> 
+            </div>  
+            </div>
+        
+            <div ng-repeat="card in support_cards" class="card">
+                <h4>{{ card.title }}</h4><p>{{ card.text }}</p>
+            </div>
+            
+            <div class="footer">
+                <p id="copyright">{{ footer }}</p>
+                <a id="support" href="{{support_link}}">{{ support }}</a>
+            </div>
+        </div>
+        
+        <script src='scripts/menu_unified.js'></script>
+        <script src='scripts/support/app.js'></script>
+        <script src='scripts/support/mainController.js'></script>
+    </body>
+</html>

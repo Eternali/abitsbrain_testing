@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home | A bit's brain</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="scripts/index/script.js"></script>
+        <script type="text/javascript" src="scripts/script_unified.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="css/stylesheet.css" />
+    </head>
+    <body ng-app="ChipThinkApp">
+    <div class="container-fluid" ng-controller="mainController">
+        <div id="title_bar">
+        <img id="title_image" ng-src="{{ title_background }}">
+                <a href="index.html" id="title_text">{{ title }}</a>
+                <a href="index.html"><img class="logo" ng-src="{{ logo }}"></a>
+        </div>
+        <div id="menu" class="row">
+        <div ng-repeat="button in menu_buttons | filter: { show_home: 1 } : true">
+            <a href="{{ button.link }}" class="menu_button col-md-6 col-sm-6" id="button-{{$index}}">
+                <p class="button_text">{{ button.text }}</p>
+                <img ng-src="{{ button.background }}" class="button_img" id="button_img-{{$index}}">
+            </a> 
+        </div>
+        </div>
+        <div id="main_body">
+            <div class="card">
+                <h4>{{ main_cards[0].title }}</h4><p>{{ main_cards[0].text }}</p>
+            </div>
+            <div class="mini_header">{{ main_cards[1].title }}</div>
+            <div ng-repeat="card in main_cards | filter: { is_first: 0 } : true" class="article_card">
+                <!--a href="javascript:void(0);" class="expand"-->
+                <img ng-src="{{ card.img }}" class="card_img">
+                <p class="card_title">{{ card.title }}</p>
+                <p class="card_date">  - {{ card.date }}</p>
+                <div class="card_body expand"><p>{{ card.text }}</p></div>
+                <!--/a-->
+            </div>
+        </div>
+        <div class="footer">
+            <p id="copyright">{{ footer }}</p>
+            <a id="support" href="{{support_link}}">{{ support }}</a>
+        </div>
+    </div>
+
+    <script src="scripts/menu_unified.js"></script>
+    <script src="scripts/index/app.js"></script>
+    <script src="scripts/index/mainController.js"></script>
+    <!--script>ko.applyBindings(new homepage());</script-->
+    <!--script>angular.bootstrap(document, ['app']);</script-->
+
+    </body>
+</html>

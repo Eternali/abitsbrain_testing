@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demos | A bit's brain</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="scripts/demos/script.js"></script>
+        <script type="text/javascript" src="scripts/script_unified.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="css/stylesheet.css" />
+    </head>
+    <body ng-app="DemosApp">
+        <div class="container-fluid" ng-controller="mainController">
+            <div id="title_bar">
+            <img id="title_image" ng-src="{{ title_background }}">
+                    <a href="index.html" id="title_text">{{ title }}</a>
+                    <a href="index.html"><img class="logo" ng-src="{{ logo }}"></a>
+            </div>
+            <div id="menu" class="row">
+            <div ng-repeat="button in menu_buttons">
+                <a href="{{ button.link }}" class="menu_button col-md-4 col-sm-4" id="button-{{$index}}">
+                    <p class="button_text">{{ button.text }}</p>
+                    <img ng-src="{{ button.background }}" class="button_img" id="button_img-{{$index}}">
+                </a> 
+            </div>  
+                <!--div class="tab_wrapper col-md-2 col-sm-2" ng-repeat="tab in tabs">
+                    <p class="tab_inner" id="{{$index}}-demos_tab" ng-click="to_tab($index)">{{ tab.title }}</p>
+                </div-->
+            </div>
+            
+            <div class="card">
+                <h4>These are almost ready!</h4><p>
+                    We will be releasing machine learning demonstrations individually as we
+                    develop them. The first will be a classical demonstration of a neural 
+                    network which should be finished within a week, and the rest will follow!
+                    Thanks for coming and don't forget to check back regularly for updates!
+                </p>
+            </div>
+            
+            <!--div id="{{selected_tab}}-body">
+                <div ng-hide="is_nn(selected_tab)">
+                    <div ng-repeat="card in tabs[selected_tab].articles" class="article_card">
+                        <img ng-src="{{ card.img }}" class="card_img">
+                        <p class="card_title">{{ card.title }}</p>
+                        <div class="card_body expand"><p>{{ card.text }}</p></div>
+                    </div>
+                </div>
+                <div ng-show="is_nn(selected_tab)">
+                    <div class="card"><h4>{{ tabs[selected_tab].title }}</h4><p>{{ tabs[selected_tab].desc }}</p></div>
+                    <div class="nn_container">
+                        <div id="nn_canvas">
+                            <canvas id="nn_input" width="400" height="400">
+                                Your browser does not support canvas.
+                            </canvas>
+                            <script type="text/javascript" src="scripts/demos/nn_input.js"></script>
+                        </div>
+                        <div id="nn_tools_container">
+                            <p class="nn_tools card">Network prediction: {{ tabs[selected_tab].nn_prediction }}</p>
+                            <button class="nn_tools nn_button card" onclick="clear_canvas()">Clear</button>
+                            <div class="nn_tools card">
+                                <p>Your answer:</p>
+                                <input class="num_input">
+                            </div>
+                            <button class="nn_tools nn_button card" style="width: 50%;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div-->    
+                
+            <div class="footer">
+                <p id="copyright">{{ footer }}</p>
+                <a id="support" href="{{support_link}}">{{ support }}</a>
+            </div>
+        </div>
+        
+        <script src='scripts/menu_unified.js'></script>
+        <script src='scripts/demos/app.js'></script>
+        <script src='scripts/demos/mainController.js'></script>
+    </body>
+</html>
